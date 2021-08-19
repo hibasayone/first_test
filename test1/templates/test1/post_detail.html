@@ -1,0 +1,15 @@
+{% extends 'test1/base.html' %}
+
+{% block content %}
+
+    <article class="post">
+        {% if post_detail.published_date %}
+            <time class="date">
+                {{ post_detail.published_date }}
+            </time>
+        {% endif %}
+        <h2>{{ post_detail.title }}</h2>
+        <p>{{ post_detail.text|linebreaksbr }}</p>
+    </article>
+{% endblock %}
+
