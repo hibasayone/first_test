@@ -1,8 +1,15 @@
-{% extends 'test1/base.html' %}
+
+
+    {% extends 'test1/base.html' %}
 
 {% block content %}
-
     <article class="post">
+        <aside class="actions">
+            {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'post_edit' pk=post_detail.pk %}">
+            </a>
+            {% endif %}
+        </aside>
         {% if post_detail.published_date %}
             <time class="date">
                 {{ post_detail.published_date }}
@@ -12,4 +19,5 @@
         <p>{{ post_detail.text|linebreaksbr }}</p>
     </article>
 {% endblock %}
+
 
